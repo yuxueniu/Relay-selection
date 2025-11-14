@@ -13,7 +13,7 @@ def XGboost_train(data_size=None, train_data=None, train_label=None, val_data=No
     start = time.perf_counter()
 
     if data_size is None:
-        data_size = 10000000
+        data_size = 5000000
     if train_data is None and train_label is None and val_data is None and val_label is None:
         # get training and validation data
         train_data, train_label, train_ori = util.get_data_max_values(data_size)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     #    print("acc", acc)
     #    #print("total time:", time.perf_counter() - start)
     # validation
-    MSE, acc, out_prob_bf, out_prob_predict, op_random, op_bulk, op_persub, op_maxsnr, op_nearest, verify_latency = v.verify_with_outage_prob(size=10000000,model=model)
+    MSE, acc, out_prob_bf, out_prob_predict, op_random, op_bulk, op_persub, op_maxsnr, op_nearest, verify_latency = v.verify_with_outage_prob(size=5000000,model=model)
     print("out_prob_predict_XGB", out_prob_predict)
     print("acc_XGB", acc)
     print("MSE_XGB", MSE)
